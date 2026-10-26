@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supermaxi - Pedidos en Línea y Domicilio</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Inter & Outfit -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            supermaxi: {
+              red: '#E31E24',
+              darkRed: '#B81217',
+              lightRed: '#FFF0F0',
+              accent: '#FFC72C',
+              dark: '#1F2937',
+              grayBG: '#F8FAFC'
+            }
+          },
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            inter: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+    .custom-shadow {
+      box-shadow: 0 10px 30px -5px rgba(227, 30, 36, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+    }
+    .gradient-hero {
+      background: linear-gradient(135deg, rgba(227, 30, 36, 0.95) 0%, rgba(184, 18, 23, 0.9) 100%),
+                  url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-amber-400 text-slate-900 text-xs sm:text-sm font-semibold py-2 text-center px-4 shadow-inner">
+    <i class="fa-solid fa-truck-fast mr-2"></i> ¡Envío GRATIS en tu primer pedido con el código: <span class="bg-slate-900 text-white px-2 py-0.5 rounded text-xs tracking-wide">SUPERDOMICILIO</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- LOGO -->
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="bg-supermaxi-red text-white font-extrabold text-2xl sm:text-3xl tracking-tighter px-3.5 py-1.5 rounded-lg flex items-center gap-1 shadow-md group-hover:scale-105 transition-transform duration-200">
+          <span>SUPERMAXI</span>
+          <span class="w-2.5 h-2.5 rounded-full bg-supermaxi-accent animate-pulse"></span>
+        </div>
+        <span class="hidden sm:inline-block text-xs font-bold tracking-wider text-slate-500 uppercase border-l border-slate-300 pl-2">
+          Domicilio
+        </span>
+      </a>
+
+      <!-- NAVIGATION LINKS -->
+      <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600 text-sm">
+        <a href="#beneficios" class="hover:text-supermaxi-red transition-colors">Beneficios</a>
+        <a href="#combos" class="hover:text-supermaxi-red transition-colors">Combos & Precios</a>
+        <a href="#faq" class="hover:text-supermaxi-red transition-colors">Preguntas Frecuentes</a>
+      </nav>
+
+      <!-- CTA BUTTON -->
+      <a href="#pedido" class="bg-supermaxi-red hover:bg-supermaxi-darkRed text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>Hacer Pedido</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="gradient-hero text-white py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-8 items-center relative z-10">
+      
+      <div class="md:col-span-7 space-y-6 text-center md:text-left">
+        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">
+          <i class="fa-solid fa-sparkles text-supermaxi-accent"></i> Servicio Oficial Supermaxi
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight drop-shadow-sm">
+          TUS COMPRAS DE SUPERMAXI AHORA HASTA LA <span class="text-supermaxi-accent underline decoration-4 decoration-amber-300">PUERTA DE TU HOGAR</span>
+        </h1>
+
+        <p class="text-slate-100 text-base sm:text-xl font-normal max-w-2xl leading-relaxed">
+          Haz tu lista de supermercado desde la comodidad de tu casa. Te llevamos los mejores productos, carnes, frutas y abarrotes frescos al mismo precio de percha.
+        </p>
+
+        <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a href="#pedido" class="bg-supermaxi-accent hover:bg-yellow-400 text-slate-900 font-extrabold text-lg px-8 py-4 rounded-xl shadow-xl hover:scale-105 transition-all text-center flex items-center justify-center gap-3">
+            <i class="fa-solid fa-basket-shopping text-xl"></i>
+            <span>Pedir Mi Canasta Ahora</span>
+          </a>
+          <a href="#combos" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/40 text-white font-bold text-base px-6 py-4 rounded-xl transition-all text-center flex items-center justify-center gap-2">
+            <span>Ver Combos Especiales</span>
+            <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
+
+        <!-- Trust badges -->
+        <div class="pt-6 border-t border-white/20 grid grid-cols-3 gap-2 text-center md:text-left text-xs sm:text-sm font-medium text-slate-200">
+          <div><i class="fa-solid fa-shield-check text-supermaxi-accent mr-1"></i> Garantía Frescura</div>
+          <div><i class="fa-solid fa-clock text-supermaxi-accent mr-1"></i> Entrega Rápida</div>
+          <div><i class="fa-solid fa-star text-supermaxi-accent mr-1"></i> Acumula Puntos</div>
+        </div>
+      </div>
+
+      <!-- HERO IMAGE / CARDS PREVIEW -->
+      <div class="md:col-span-5 flex justify-center">
+        <div class="bg-white p-4 rounded-3xl shadow-2xl text-slate-800 max-w-md w-full border-4 border-white/20 transform md:rotate-1 hover:rotate-0 transition-transform duration-300">
+          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80" alt="Supermaxi Domicilio" class="rounded-2xl w-full h-56 object-cover mb-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="bg-red-100 text-supermaxi-red font-bold text-xs px-2.5 py-1 rounded-full uppercase">Super Promoción</span>
+              <span class="text-slate-400 text-xs"><i class="fa-regular fa-clock"></i> Pedido express</span>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900">Combo Familia Feliz Supermaxi</h3>
+            <p class="text-slate-600 text-xs">Incluye lácteos, carnes seleccionadas, frutas, verduras y artículos de primera necesidad.</p>
+            <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+              <div>
+                <span class="text-xs text-slate-400 line-through">$42.00</span>
+                <div class="text-2xl font-black text-supermaxi-red">$35.00</div>
+              </div>
+              <a href="#pedido" class="bg-slate-900 hover:bg-supermaxi-red text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors">
+                Pedir Este Combo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section id="beneficios" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-supermaxi-red font-bold text-sm tracking-wider uppercase bg-supermaxi-lightRed px-3 py-1 rounded-full">¿Por qué elegirnos?</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Beneficios Exclusivos de Supermaxi Domicilio</h2>
+      <p class="text-slate-600 mt-3 text-base">Hacemos tu experiencia de compra más conveniente, segura y rápida sin salir de casa.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <!-- Benefit 1 -->
+      <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+        <div class="w-16 h-16 rounded-2xl bg-supermaxi-lightRed text-supermaxi-red flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-supermaxi-red group-hover:text-white transition-colors">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">Entregas el Mismo Día</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">
+          Recibe tus compras en la puerta de tu casa en la franja horaria que mejor te convenga, con seguimiento en tiempo real.
+        </p>
+      </div>
+
+      <!-- Benefit 2 -->
+      <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+        <div class="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+          <i class="fa-solid fa-apple-whole"></i>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">Productos Frescos Garantizados</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">
+          Nuestros expertos seleccionan cuidadosamente las mejores carnes, frutas y verduras como si lo hicieras tú mismo.
+        </p>
+      </div>
+
+      <!-- Benefit 3 -->
+      <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+        <div class="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">Acumulación de Puntos</h3>
+        <p class="text-slate-600 leading-relaxed text-sm">
+          Continúa acumulando tus Puntos Supermaxi en cada pedido en línea para canjearlos por descuentos e increíbles premios.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMBOS Y PRECIOS -->
+  <section id="combos" class="py-16 md:py-24 bg-slate-100/80 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-supermaxi-red font-bold text-sm tracking-wider uppercase bg-supermaxi-lightRed px-3 py-1 rounded-full">Ofertas del Mes</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Combos Preparados para Ti</h2>
+        <p class="text-slate-600 mt-3 text-base">Paquetes armados con los mejores productos de la canasta básica a precios especiales.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Combo 1 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all relative">
+          <div>
+            <div class="text-slate-500 font-bold text-xs uppercase tracking-wider mb-2">Ideal para 2 personas</div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">Pack Frutas y Verduras</h3>
+            <div class="flex items-baseline mb-6">
+              <span class="text-4xl font-extrabold text-slate-900">$15</span>
+              <span class="text-slate-500 font-medium ml-2">/ pedido</span>
+            </div>
+            <ul class="space-y-3.5 text-sm text-slate-600 mb-8 border-t border-slate-100 pt-6">
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span>3 kg de frutas variadas de temporada</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span>4 kg de verduras y hortalizas frescas</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span>Hierbas aromáticas y limones</span>
+              </li>
+              <li class="flex items-center gap-3 text-slate-400">
+                <i class="fa-solid fa-xmark text-slate-300"></i>
+                <span>No incluye abarrotes</span>
+              </li>
+            </ul>
+          </div>
+          <button onclick="selectCombo('Pack Frutas y Verduras ($15)')" class="w-full bg-slate-100 hover:bg-supermaxi-red hover:text-white text-slate-800 font-bold py-3 rounded-xl transition-colors text-center">
+            Elegir Combo
+          </button>
+        </div>
+
+        <!-- Combo 2 (Popular) -->
+        <div class="bg-white rounded-2xl border-2 border-supermaxi-red p-8 flex flex-col justify-between shadow-xl relative transform md:-translate-y-2">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-supermaxi-red text-white font-extrabold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider shadow">
+            Más Vendido
+          </div>
+          <div>
+            <div class="text-supermaxi-red font-bold text-xs uppercase tracking-wider mb-2">Recomendado Familias</div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">Canasta Familiar</h3>
+            <div class="flex items-baseline mb-6">
+              <span class="text-4xl font-extrabold text-supermaxi-red">$35</span>
+              <span class="text-slate-500 font-medium ml-2">/ pedido</span>
+            </div>
+            <ul class="space-y-3.5 text-sm text-slate-600 mb-8 border-t border-slate-100 pt-6">
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span>Carnes seleccionadas (Res, Pollo, Cerdo)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span>Lácteos, quesos y huevos de granja</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span>Arroz, aceite, fideos y granos secos</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span>Surtido de frutas y verduras frescas</span>
+              </li>
+            </ul>
+          </div>
+          <button onclick="selectCombo('Canasta Familiar ($35)')" class="w-full bg-supermaxi-red hover:bg-supermaxi-darkRed text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all text-center">
+            Elegir Canasta Familiar
+          </button>
+        </div>
+
+        <!-- Combo 3 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+          <div>
+            <div class="text-slate-500 font-bold text-xs uppercase tracking-wider mb-2">Aprovisionamiento</div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">Combo Despensa</h3>
+            <div class="flex items-baseline mb-6">
+              <span class="text-4xl font-extrabold text-slate-900">$25</span>
+              <span class="text-slate-500 font-medium ml-2">/ pedido</span>
+            </div>
+            <ul class="space-y-3.5 text-sm text-slate-600 mb-8 border-t border-slate-100 pt-6">
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span>Aceite, arroz, azúcar y sal refinada</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span>Enlatados variados (Atún, Sardinas, Maíz)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span>Productos de limpieza e higiene personal</span>
+              </li>
+              <li class="flex items-center gap-3 text-slate-400">
+                <i class="fa-solid fa-xmark text-slate-300"></i>
+                <span>No incluye carnes perecibles</span>
+              </li>
+            </ul>
+          </div>
+          <button onclick="selectCombo('Combo Despensa ($25)')" class="w-full bg-slate-100 hover:bg-supermaxi-red hover:text-white text-slate-800 font-bold py-3 rounded-xl transition-colors text-center">
+            Elegir Combo
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO DE PEDIDO Y SIMULACIÓN GOOGLE SHEETS -->
+  <section id="pedido" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-12 gap-12 items-start">
+      
+      <!-- FORM INFO -->
+      <div class="md:col-span-5 space-y-6">
+        <span class="text-supermaxi-red font-bold text-sm tracking-wider uppercase bg-supermaxi-lightRed px-3 py-1 rounded-full">Haz tu Pedido</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">Solicita tu compra a domicilio hoy mismo</h2>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+          Diligencia el siguiente formulario y nos pondremos en contacto inmediato para confirmar tu pedido. Cada envío se registra de forma automatizada en nuestra base de datos.
+        </p>
+
+        <!-- Dynamic Integration Card -->
+        <div class="bg-emerald-50 border border-emerald-200 p-5 rounded-2xl flex items-start gap-4">
+          <div class="bg-emerald-600 text-white p-3 rounded-xl text-xl shadow-sm">
+            <i class="fa-solid fa-file-csv"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-emerald-900 text-sm">Conexión en Tiempo Real</h4>
+            <p class="text-emerald-700 text-xs mt-1">Este formulario simula la integración activa con <strong>Google Sheets + Apps Script</strong>. Cada registro añade una nueva fila automáticamente.</p>
+          </div>
+        </div>
+
+        <div class="space-y-4 pt-2">
+          <div class="flex items-center gap-3 text-slate-700 font-medium text-sm">
+            <i class="fa-solid fa-phone text-supermaxi-red"></i> Call Center: 1800-SUPERMAXI
+          </div>
+          <div class="flex items-center gap-3 text-slate-700 font-medium text-sm">
+            <i class="fa-solid fa-clock text-supermaxi-red"></i> Horarios: Lunes a Domingo de 08:00 a 20:00
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM CONTAINER -->
+      <div class="md:col-span-7">
+        <div class="bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-xl relative">
+          
+          <form id="orderForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+            <div>
+              <label for="nombre" class="block text-sm font-bold text-slate-700 mb-2">Nombre Completo *</label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
+                  <i class="fa-regular fa-user"></i>
+                </span>
+                <input type="text" id="nombre" required placeholder="Ej. Ana María López" class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-supermaxi-red focus:border-supermaxi-red text-slate-800 text-sm outline-none transition-all">
+              </div>
+            </div>
+
+            <div>
+              <label for="correo" class="block text-sm font-bold text-slate-700 mb-2">Correo Electrónico *</label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
+                  <i class="fa-regular fa-envelope"></i>
+                </span>
+                <input type="email" id="correo" required placeholder="ejemplo@correo.com" class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-supermaxi-red focus:border-supermaxi-red text-slate-800 text-sm outline-none transition-all">
+              </div>
+            </div>
+
+            <div>
+              <label for="combo" class="block text-sm font-bold text-slate-700 mb-2">Combo o Servicio Elegido *</label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                </span>
+                <select id="combo" required class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-supermaxi-red focus:border-supermaxi-red text-slate-800 text-sm outline-none transition-all appearance-none bg-white">
+                  <option value="" disabled selected>Selecciona un combo...</option>
+                  <option value="Canasta Familiar ($35)">Canasta Familiar ($35)</option>
+                  <option value="Combo Despensa ($25)">Combo Despensa ($25)</option>
+                  <option value="Pack Frutas y Verduras ($15)">Pack Frutas y Verduras ($15)</option>
+                  <option value="Pedido Personalizado">Pedido Personalizado a Medida</option>
+                </select>
+                <span class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-slate-400">
+                  <i class="fa-solid fa-chevron-down text-xs"></i>
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <label for="direccion" class="block text-sm font-bold text-slate-700 mb-2">Dirección de Entrega Exacta *</label>
+              <div class="relative">
+                <span class="absolute top-3.5 left-0 flex items-center pl-3.5 text-slate-400">
+                  <i class="fa-solid fa-location-dot"></i>
+                </span>
+                <textarea id="direccion" required rows="3" placeholder="Ciudad, Sector, Calle principal, secundaria y # de casa o edificio..." class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-supermaxi-red focus:border-supermaxi-red text-slate-800 text-sm outline-none transition-all"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="w-full bg-supermaxi-red hover:bg-supermaxi-darkRed text-white font-extrabold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 text-base">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Enviar Pedido a Google Sheets</span>
+            </button>
+          </form>
+
+          <!-- DYNAMIC GOOGLE SHEETS SIMULATED NOTIFICATION -->
+          <div id="sheetsNotification" class="hidden mt-6 p-6 bg-slate-900 text-white rounded-2xl shadow-2xl border border-slate-700 animate-fade-in">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-700">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-table text-emerald-400 text-xl"></i>
+                <span class="font-bold text-sm text-emerald-400">Google Sheets API: Registro Exitoso</span>
+              </div>
+              <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full border border-emerald-500/30">Fila #<span id="sheetRowCount">1</span> Añadida</span>
+            </div>
+
+            <p class="text-xs text-slate-300 mt-3 mb-4">
+              ¡Tu pedido ha sido registrado correctamente mediante Apps Script!
+            </p>
+
+            <!-- Table Preview -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs font-mono bg-slate-950 rounded-lg p-2 border border-slate-800">
+                <thead>
+                  <tr class="text-slate-400 border-b border-slate-800">
+                    <th class="p-2">Fecha</th>
+                    <th class="p-2">Cliente</th>
+                    <th class="p-2">Combo</th>
+                    <th class="p-2">Estado</th>
+                  </tr>
+                </thead>
+                <tbody id="sheetTableBody">
+                  <!-- Dynamic Row Inserted via JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between text-xs text-slate-400">
+              <span><i class="fa-solid fa-check text-emerald-400"></i> Netlify App Sync OK</span>
+              <button onclick="resetForm()" class="text-supermaxi-accent underline font-semibold hover:text-white">Realizar otro pedido</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="py-16 md:py-24 bg-slate-100/80 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-supermaxi-red font-bold text-sm tracking-wider uppercase bg-supermaxi-lightRed px-3 py-1 rounded-full">Resuelve tus dudas</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Preguntas Frecuentes</h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <details class="group bg-white p-6 rounded-2xl border border-slate-200 transition-all [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-lg">
+            <span>¿Cuáles son los métodos de pago aceptados?</span>
+            <span class="transition-transform group-open:rotate-180 text-supermaxi-red">
+              <i class="fa-solid fa-chevron-down"></i>
+            </span>
+          </summary>
+          <p class="mt-4 text-slate-600 text-sm leading-relaxed">
+            Aceptamos tarjetas de crédito o débito (Visa, Mastercard, Diners Club), transferencias bancarias directas, pago en efectivo o con datáfono inalámbrico al momento de recibir el pedido en tu hogar.
+          </p>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="group bg-white p-6 rounded-2xl border border-slate-200 transition-all [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-lg">
+            <span>¿Cuáles son las zonas de cobertura?</span>
+            <span class="transition-transform group-open:rotate-180 text-supermaxi-red">
+              <i class="fa-solid fa-chevron-down"></i>
+            </span>
+          </summary>
+          <p class="mt-4 text-slate-600 text-sm leading-relaxed">
+            Contamos con cobertura total urbana en las principales ciudades del país (Quito, Guayaquil, Cuenca, Ambato, Manta y Santo Domingo) con centros de distribución cercanos a tu domicilio.
+          </p>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="group bg-white p-6 rounded-2xl border border-slate-200 transition-all [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-lg">
+            <span>¿Cuánto tiempo tarda en llegar mi compra?</span>
+            <span class="transition-transform group-open:rotate-180 text-supermaxi-red">
+              <i class="fa-solid fa-chevron-down"></i>
+            </span>
+          </summary>
+          <p class="mt-4 text-slate-600 text-sm leading-relaxed">
+            Ofrecemos entregas dentro de un margen estimado de 2 a 4 horas para pedidos express, o puedes programar la entrega en franjas horarias específicas durante el día.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="bg-supermaxi-red text-white py-16 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto relative z-10 space-y-6">
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">¡Haz tu vida más fácil con Supermaxi Domicilio!</h2>
+      <p class="text-slate-100 text-base sm:text-lg max-w-2xl mx-auto">
+        Ahorra tiempo, evita filas y recibe productos seleccionados con los más altos estándares de calidad.
+      </p>
+      <div class="pt-2">
+        <a href="#pedido" class="inline-block bg-supermaxi-accent hover:bg-yellow-400 text-slate-900 font-extrabold text-lg px-8 py-4 rounded-xl shadow-2xl hover:scale-105 transition-transform">
+          Solicitar Mi Pedido Ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8 mb-8 text-sm">
+      <div class="space-y-3">
+        <div class="text-white font-extrabold text-xl tracking-tight">SUPERMAXI</div>
+        <p class="text-xs text-slate-400">El placer de comprar. Servicio oficial de entregas y pedidos a domicilio.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Enlaces Rápido</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#beneficios" class="hover:text-white">Beneficios</a></li>
+          <li><a href="#combos" class="hover:text-white">Combos</a></li>
+          <li><a href="#faq" class="hover:text-white">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Atención al Cliente</h4>
+        <ul class="space-y-2 text-xs">
+          <li>Línea Directa: 1800-787376</li>
+          <li>soporte@supermaxidomicilio.com</li>
+          <li>Quito - Ecuador</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-3">Despliegue Netlify</h4>
+        <p class="text-xs text-slate-400">Página optimizada para Netlify + integración Google Apps Script.</p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
+      &copy; 2026 Supermaxi Ecuador - Todos los derechos reservados. Demostración para asignación especial.
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    let submissionCounter = 1;
+
+    function selectCombo(comboName) {
+      const selectElement = document.getElementById('combo');
+      selectElement.value = comboName;
+      document.getElementById('pedido').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      const btn = document.getElementById('submitBtn');
+      const nombre = document.getElementById('nombre').value;
+      const correo = document.getElementById('correo').value;
+      const combo = document.getElementById('combo').value;
+      const direccion = document.getElementById('direccion').value;
+
+      // Loading State
+      btn.disabled = true;
+      btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Guardando en Google Sheets...`;
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Enviar Pedido a Google Sheets`;
+
+        // Hide form and show dynamic notification
+        document.getElementById('orderForm').classList.add('hidden');
+        
+        const notif = document.getElementById('sheetsNotification');
+        notif.classList.remove('hidden');
+
+        document.getElementById('sheetRowCount').innerText = submissionCounter;
+
+        const tableBody = document.getElementById('sheetTableBody');
+        const now = new Date();
+        const dateStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        tableBody.innerHTML = `
+          <tr class="text-emerald-300 border-b border-slate-800/50">
+            <td class="p-2">${dateStr}</td>
+            <td class="p-2">${nombre}</td>
+            <td class="p-2">${combo}</td>
+            <td class="p-2"><span class="bg-emerald-500/20 px-2 py-0.5 rounded text-[10px]">REGISTRADO</span></td>
+          </tr>
+        `;
+
+        submissionCounter++;
+      }, 1200);
+    }
+
+    function resetForm() {
+      document.getElementById('orderForm').reset();
+      document.getElementById('orderForm').classList.remove('hidden');
+      document.getElementById('sheetsNotification').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
